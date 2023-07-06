@@ -2,9 +2,9 @@
 cat <<EOF >/home/ubuntu/setup.sh
 #!/bin/bash
 
-# Install jq, curl, libdigest-sha-perl
+# Install jq, curl, libdigest-sha-perl awscli
 sudo apt-get update
-sudo apt-get install -y jq curl libdigest-sha-perl
+sudo apt-get install -y jq curl libdigest-sha-perl awscli
 echo "1...Installed required libraries"
 
 # Create a folder
