@@ -1,0 +1,9 @@
+name: CI
+on: [workflow_dispatch]
+jobs:
+  Test-Job:
+    name: Test job
+    runs-on: self-hosted
+    steps:
+      - name: Hello
+        run: echo 'Hello World'
