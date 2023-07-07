@@ -29,11 +29,14 @@ resource "aws_iam_role_policy" "github_runner_instance_iam_role_policy" {
     Version : "2012-10-17",
     Statement : [
       {
-        Action : [
-          "s3:*"
+        "Effect" : "Allow",
+        "Action" : [
+          "sts:AssumeRole",
+          "sts:TagSession"
         ],
-        Effect : "Allow",
-        Resource : "*"
+        "Resource" : [
+          "arn:aws:iam::067835977105:role/iam_role_creator_role"
+        ]
       }
     ]
   })

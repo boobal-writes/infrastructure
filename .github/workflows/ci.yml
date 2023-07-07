@@ -1,9 +1,15 @@
 name: CI
 on: [workflow_dispatch]
 jobs:
-  Test-Job:
-    name: Test job
+  Test-Assume-Role:
+    name: Test Assume Role
     runs-on: self-hosted
     steps:
-      - name: Hello
-        run: echo 'Hello World'
+      - name: Configure AWS Credentials
+        uses: aws-actions/configure-aws-credentials@v2
+        with:
+          role-to-assume: arn:aws:iam::067835977105:role/iam_role_creator_role
+          aws-region: ap-south-1
+      - name: Identity Check
+        run: |
+          aws sts get-caller-identity
